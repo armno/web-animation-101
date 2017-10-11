@@ -21,10 +21,45 @@
 		</div>
 	</div>
 
+		<h1>Cube</h1>
+
+	<div class="cube-container">
+		<div class="cube show-front" id="cube">
+			<img class="front" src="img/buzzwoo-logo-on-white.svg" alt="buzzwoo logo">
+			<img class="back"  src="img/buzzwoo-logo-on-white.svg" alt="buzzwoo logo">
+			<img class="top"  src="img/buzzwoo-logo-white.svg" alt="buzzwoo logo">
+			<img class="bottom"  src="img/buzzwoo-logo-white.svg" alt="buzzwoo logo">
+		</div>
+	</div>
+
 	<script>
 		document.querySelector('#flip-card').addEventListener('click', function() {
 			this.classList.toggle('flipped');
-		});
+		}, false);
+
+
+		var cubeFaces = [
+			'show-front',
+			'show-top',
+			'show-back',
+			'show-bottom'
+		];
+		var cubeIndex = 1;
+
+		document.querySelector('#cube')
+			.addEventListener('click', function() {
+				cubeFaces.map((className) => {
+					this.classList.remove(className);
+				});
+
+				this.classList.add(cubeFaces[cubeIndex]);
+				cubeIndex += 1;
+				if (cubeFaces[cubeIndex] === undefined) {
+					cubeIndex = 0;
+				}
+
+			}, false)
+
 	</script>
 </body>
 </html>
